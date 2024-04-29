@@ -4,4 +4,4 @@ pandas
 prophet
 matplotlib
 statsmodels
-sklearn
+scikit-learn
