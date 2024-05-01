@@ -9,7 +9,7 @@ import sys, logging, json
 if len(sys.argv) > 1:
     productcode = int(sys.argv[1])
 else:
-    print('must supply product code')
+    print('please, supply product code')
     exit()
 
 logger = logging.getLogger('cmdstanpy')
@@ -82,7 +82,11 @@ def SeasonalityModel(product_purchase):
     forecasted_data = {
         "customer_name" : str(product_purchase['CustomerName'][0]),
         "customer_code" : str(product_purchase['CustomerCode'][0]),
-        "timestamp" : str(next_date_prediction)
+        "timestamp" : str(next_date_prediction),
+        "count" : str(len(product_purchase)),
+        "region_name": str(product_purchase['RegionName'][0]),
+        "store_name": str(product_purchase['StoreName'][0]),
+        "product_name": str(product_purchase['ProductFullName'][0])
     }
     return forecasted_data
 
